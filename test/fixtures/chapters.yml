@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  email: MyText
+  content: MyText
+  path1: MyText
+  path2: MyText
+  created_on: 2018-02-20
+
+two:
+  name: MyText
+  email: MyText
+  content: MyText
+  path1: MyText
+  path2: MyText
+  created_on: 2018-02-20
