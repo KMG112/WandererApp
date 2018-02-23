@@ -24,18 +24,17 @@ ActiveRecord::Schema.define(version: 20180222213439) do
 
   create_table "paths", force: :cascade do |t|
     t.text "content"
+    t.integer "p_id"
     t.datetime "created_at", null: false
   end
 
   create_table "plots", force: :cascade do |t|
+    t.bigint "path_id"
+    t.integer "chapter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "path_id"
-    t.bigint "chapter_id"
-    t.index ["chapter_id"], name: "index_plots_on_chapter_id"
     t.index ["path_id"], name: "index_plots_on_path_id"
   end
 
-  add_foreign_key "plots", "chapters"
   add_foreign_key "plots", "paths"
 end

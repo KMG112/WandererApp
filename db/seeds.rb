@@ -11,7 +11,11 @@ Chapter.create(
     content: "1 This is the first test"
 	)
 Path.create(
-	 content: " Test 1 Path 1"
-
+	 content: " Test 1 Path 1",
+	 p_id: 1
 	)
 
+Path.create(
+	 content: " Test 1 Path 2",
+	 p_id: 2
+	)
