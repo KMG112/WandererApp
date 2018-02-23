@@ -10,9 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20180222213439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "chapters", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "content"
+    t.datetime "created_at", null: false
+  end
+
+  create_table "paths", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", null: false
+  end
+
+  create_table "plots", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "path_id"
+    t.bigint "chapter_id"
+    t.index ["chapter_id"], name: "index_plots_on_chapter_id"
+    t.index ["path_id"], name: "index_plots_on_path_id"
+  end
+
+  add_foreign_key "plots", "chapters"
+  add_foreign_key "plots", "paths"
 end
