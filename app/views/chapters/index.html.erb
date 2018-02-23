@@ -1,4 +1,2 @@
-<% button_to "New", action: "new" %>
-<form method="get" action="chapters/new" class="button_to">
- <input value="Start" type="submit" />
-</form>
+
+<%= link_to 'Start', chapter_path(:id => @chapter.id) %>

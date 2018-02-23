@@ -2,21 +2,25 @@
 
 class ChaptersController < ApplicationController
 	def index
+		@chapter = Chapter.order("RANDOM()").first
 	end
 
 	def new
-		@chapter = Chapter.new(params.require(:chapter).permit(:title, :text))
+		@chapter = Chapter.new(chapter_params)
 	end
 
 	def create
-		@chapter = Chapter.new(@chapter.params)
- 
+		@chapter = Chapter.find(params[:chapter_id])
   		@chapter.save
-  		redirect_to @chapter
+
 	end
+
+	def show
+		@chapter = Chapter.find(params[:id])
+  	end
 end
 
 private
   def chapter_params
-    params.require(:chapter).permit(:name, :content)
+    params.permit(:id, :name, :content, :path1, :path2)
   end

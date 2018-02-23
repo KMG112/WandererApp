@@ -5,9 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Chapter.create(
+	name: "Test 1",
+    email: "test1@gmail.com",
+    content: "1 This is the first test"
+	)
+Path.create(
+	 content: " Test 1 Path 1"
 
-Chapter.create(name: 'Matt',
-    email: "matt@ghj.com",
-    content: "Hey this is a nice test, aint it?",
-    path1: "Path 1",
-    path2: "path2")
+	)
+

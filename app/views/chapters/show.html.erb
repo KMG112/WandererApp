@@ -1,0 +1,41 @@
+
+<p>
+  <strong>Name:</strong>
+  <%= @chapter.name %>
+</p>
+ 
+
+<p>
+  <strong>ID:</strong>
+  <%= @chapter.id %>
+</p>
+
+
+<p>
+  <strong>Path1:</strong>
+  <%= @chapter.path1.content %>
+</p>
+
+<%= button_to 'Path1', {:controller => "chapters", :action => "create", :path1 => @chapter.path1, :chapter_id=> @chapter.id, } , :method=>:post  %>
+
+
+<p>
+  <strong>Path2:</strong>
+  <%= @chapter.path2.content %>
+</p>
+<%= button_to 'Path1', {:controller => "chapters", :action => "create", :path1 => @chapter.path2, :chapter_id=> @chapter.id, } , :method=>:post  %>
+
+<p>
+  <strong>Content:</strong>
+  <%= @chapter.content %>
+</p>
+
+
+---------
+
+
+
+<p>
+  <strong>Inspect:</strong>
+  <%= @chapter.inspect %>
+</p>

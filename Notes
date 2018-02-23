@@ -1,0 +1,12 @@
+Notes
+
+rake db:drop db:create db:migrate db:seed
+
+Has to be able to send user to chapter with open path.
+
+User has to be able to navigate to either new chapter or to keep following story
+
+Lock version
+
+path count
+includes_paths
