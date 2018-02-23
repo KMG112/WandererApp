@@ -8,14 +8,14 @@
 Chapter.create(
 	name: "Test 1",
     email: "test1@gmail.com",
-    content: "1 This is the first test"
+    content: "1 This is the first test",
 	)
 Path.create(
 	 content: " Test 1 Path 1",
-	 p_id: 1
+	 p_type: 1
 	)
 
 Path.create(
 	 content: " Test 1 Path 2",
-	 p_id: 2
+	 p_type: 2
 	)
