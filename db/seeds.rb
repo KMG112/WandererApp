@@ -5,17 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Chapter.create(
+c = Chapter.create(
 	name: "Test 1",
     email: "test1@gmail.com",
     content: "1 This is the first test",
 	)
-Path.create(
+p = Path.create(
 	 content: " Test 1 Path 1",
 	 p_type: 1
 	)
 
-Path.create(
+o = Path.create(
 	 content: " Test 1 Path 2",
 	 p_type: 2
 	)
+
+f = c.plots.create(path: p, path1_id: p.id)
+f.path = o
+f.path2_id = o.id

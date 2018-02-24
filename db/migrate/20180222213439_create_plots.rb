@@ -16,17 +16,17 @@ class CreatePlots < ActiveRecord::Migration[5.1]
   	end
 
   	create_table :plots, force: :cascade do |t|
-  	  t.integer "path_id"
+  	  # t.integer "path_id"
       t.integer "path1_id"
       t.integer "path2_id"
       t.integer "pathPrev_id"
-      t.integer "chapter_id"
+      # t.integer "chapter_id"
       t.timestamps
     end
 
-    # add_reference :plots, :path, column: :path_id, :foreign_key => true
+    add_reference :plots, :path, column: :path_id
  
-    # add_reference :plots, :chapter, :foreign_key => true
+    add_reference :plots, :chapter, :foreign_key => true
 
   end
 end
