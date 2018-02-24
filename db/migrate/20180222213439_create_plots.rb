@@ -16,11 +16,12 @@ class CreatePlots < ActiveRecord::Migration[5.1]
   	end
 
   	create_table :plots, force: :cascade do |t|
-  	  # t.integer "path_id"
-      t.integer "path1_id"
-      t.integer "path2_id"
-      t.integer "pathPrev_id"
-      # t.integer "chapter_id"
+  	  t.integer "path_id"
+      t.string "path_type"
+      # t.integer "path1_id"
+      # t.integer "path2_id"
+      # t.integer "pathPrev_id"
+      t.integer "chapter_id"
       t.timestamps
     end
 
