@@ -24,18 +24,21 @@ ActiveRecord::Schema.define(version: 20180222213439) do
 
   create_table "paths", force: :cascade do |t|
     t.text "content"
-    t.integer "p_type"
     t.datetime "created_at", null: false
   end
 
   create_table "plots", force: :cascade do |t|
-    t.integer "path_id"
-    t.integer "path1_id"
-    t.integer "path2_id"
-    t.integer "pathPrev_id"
-    t.integer "chapter_id"
+    t.string "path1_type"
+    t.bigint "path1_id"
+    t.string "path2_type"
+    t.bigint "path2_id"
+    t.string "chapter_type"
+    t.bigint "chapter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["chapter_type", "chapter_id"], name: "index_plots_on_chapter_type_and_chapter_id"
+    t.index ["path1_type", "path1_id"], name: "index_plots_on_path1_type_and_path1_id"
+    t.index ["path2_type", "path2_id"], name: "index_plots_on_path2_type_and_path2_id"
   end
 
 end

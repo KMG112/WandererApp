@@ -1,13 +1,11 @@
 class Plot < ApplicationRecord
-  belongs_to :chapter, class_name: "Chapter", inverse_of: :plots
-  belongs_to :path, class_name: "Path", inverse_of: :plots, polymorphic: true
-  # belongs_to :path2, class_name: "Path", inverse_of: :plots
-  # belongs_to :pathPrev, class_name: "Path", inverse_of: :plots
+  belongs_to :chapter
 
-  # accepts_nested_attributes_for :chapter
-  # accepts_nested_attributes_for :path
-  # accepts_nested_attributes_for :path2
+  belongs_to :path1, class_name: "Path", polymorphic: true, optional: true
+  belongs_to :path2, class_name: "Path", polymorphic: true, optional: true
 
-  # accepts_nested_attributes_for :pathPrev
+  accepts_nested_attributes_for :chapter, :path1, :path2
+
+
 
 end

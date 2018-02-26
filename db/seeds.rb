@@ -11,13 +11,11 @@ c = Chapter.create(
     content: "1 This is the first test",
 	)
 p = Path.create(
-	 content: " Test 1 Path 1",
-	 p_type: 1
+	 content: " Test 1 Path 1"
 	)
 
 o = Path.create(
-	 content: " Test 1 Path 2",
-	 p_type: 2
+	 content: " Test 1 Path 2"
 	)
 
 # f = c.plots.create(path: p, path1_id: p.id)
