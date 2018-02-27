@@ -1,15 +1,18 @@
 
 class Path < ApplicationRecord
-  has_many :plots
+  has_many :plots, class_name: 'Plot', foreign_key: :path1_id, inverse_of: :path1
+  has_many :plots, class_name: 'Plot', foreign_key: :path2_id, inverse_of: :path2
+
+  has_many :chapters, through: :plots, foreign_key: 'chapter_id', class_name: 'Chapter'
   
 
-  has_one :plot, class_name: "Plot", as: :path1
-  has_one :plot, class_name: "Plot", as: :path2
-
-  has_many :chapters, through: :plot, as: :path1, source_type:  "Chapter"
-  has_many :chapters, through: :plot, as: :path2, source_type: "Chapter"
-  
-  has_many :chapters, through: :plot
 
   
 end
+
+
+
+
+
+
+
