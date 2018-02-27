@@ -15,11 +15,9 @@ class CreatePlots < ActiveRecord::Migration[5.1]
   	end
 
   	create_table :plots, force: :cascade do |t|
-      t.references :path,index: true
-  	  
-      t.references :path1,index: true
-      t.references :path2, index: true
-      t.references :chapter, index: true
+      t.references :path1,index: true, foreign_key: true
+      t.references :path2, index: true, foreign_key: true
+      t.references :chapter, index: true, foreign_key: true
       t.timestamps
     end
 
