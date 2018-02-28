@@ -18,5 +18,5 @@ o = Path.create(
 	 content: " Test 1 Path 2"
 	)
 
-f = c.plots.create(path1: p)
-
+f = c.plots.create(path:p, path1_id: p.id)
+c.paths << o

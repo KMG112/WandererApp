@@ -28,14 +28,15 @@ ActiveRecord::Schema.define(version: 20180222213439) do
   end
 
   create_table "plots", force: :cascade do |t|
-    t.bigint "path1_id"
-    t.bigint "path2_id"
+    t.bigint "path_id"
     t.bigint "chapter_id"
+    t.integer "path1_id"
+    t.integer "path2_id"
+    t.integer "pathPrev_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["chapter_id"], name: "index_plots_on_chapter_id"
-    t.index ["path1_id"], name: "index_plots_on_path1_id"
-    t.index ["path2_id"], name: "index_plots_on_path2_id"
+    t.index ["path_id"], name: "index_plots_on_path_id"
   end
 
 end

@@ -20,7 +20,20 @@
   <%= @chapter.content %>
 </p>
 
+<p>
+  <strong>Path1:</strong>
+  <%= @chapter.plots.first.path1_id %>
+</p>
 
+<% @r = @chapter.plots.first.path2_id %>
+<p>
+  <strong>Path2:</strong>
+  <%= @r %>
+</p>
+<p>
+  <strong>Path2-Content:</strong>
+  <%= @chapter.paths.inspect %>
+</p>
 ---------
 
 

@@ -14,10 +14,12 @@ class CreatePlots < ActiveRecord::Migration[5.1]
 	    t.datetime :created_at, null: false
   	end
 
-  	create_table :plots, force: :cascade do |t|
-      t.references :path1,index: true, foreign_key: true
-      t.references :path2, index: true, foreign_key: true
-      t.references :chapter, index: true, foreign_key: true
+  	create_table :plots do |t|
+      t.belongs_to :path,index: true
+      t.belongs_to :chapter, index: true
+      t.integer :path1_id
+      t.integer :path2_id
+      t.integer :pathPrev_id
       t.timestamps
     end
 

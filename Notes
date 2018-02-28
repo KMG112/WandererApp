@@ -12,7 +12,7 @@ path count
 includes_paths
 
 
-
+git reset --hard HEAD
 
 <%= button_to 'Path1', {:controller => "chapters", :action => "create", :path1 => @chapter.path1, :chapter_id=> @chapter.id, } , :method=>:post  %>
 
