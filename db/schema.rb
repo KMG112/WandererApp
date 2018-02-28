@@ -19,6 +19,9 @@ ActiveRecord::Schema.define(version: 20180222213439) do
     t.string "name"
     t.string "email"
     t.string "content"
+    t.integer "path1_id"
+    t.integer "path2_id"
+    t.integer "pathPrev_id"
     t.datetime "created_at", null: false
   end
 
@@ -30,9 +33,6 @@ ActiveRecord::Schema.define(version: 20180222213439) do
   create_table "plots", force: :cascade do |t|
     t.bigint "path_id"
     t.bigint "chapter_id"
-    t.integer "path1_id"
-    t.integer "path2_id"
-    t.integer "pathPrev_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["chapter_id"], name: "index_plots_on_chapter_id"

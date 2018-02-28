@@ -1,3 +1,8 @@
+<% @ps = @chapter.paths %>
+
+<% @p1 = @chapter.path1_id %>
+<% @p2 = @chapter.path1_id %>
+
 
 <p>
   <strong>Name:</strong>
@@ -6,13 +11,9 @@
  
 
 <p>
-  <strong>ID:</strong>
-  <%= @chapter.id %>
+  <strong>Email:</strong>
+  <%= @chapter.email %>
 </p>
-
-
-
-
 
 
 <p>
@@ -22,23 +23,18 @@
 
 <p>
   <strong>Path1:</strong>
-  <%= @chapter.plots.first.path1_id %>
+  <%= @chapter.paths.find( @p1).content %>
 </p>
+ <strong>Path2-Content:</strong>
+  <%= @chapter.paths.find( @p2).content %>
 
-<% @r = @chapter.plots.first.path2_id %>
+</p>
 <p>
   <strong>Path2:</strong>
-  <%= @r %>
+
 </p>
 <p>
   <strong>Path2-Content:</strong>
-  <%= @chapter.paths.inspect %>
-</p>
----------
+  <%= @chapter.paths.find( @p2).content %>
 
-
-
-<p>
-  <strong>Inspect:</strong>
-  <%= @chapter.inspect %>
 </p>

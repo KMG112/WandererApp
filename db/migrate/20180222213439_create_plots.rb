@@ -6,6 +6,9 @@ class CreatePlots < ActiveRecord::Migration[5.1]
     t.string :name
     t.string :email
     t.string :content
+    t.integer :path1_id
+    t.integer :path2_id
+    t.integer :pathPrev_id
     t.datetime :created_at, null: false
 	end
 	
@@ -17,9 +20,7 @@ class CreatePlots < ActiveRecord::Migration[5.1]
   	create_table :plots do |t|
       t.belongs_to :path,index: true
       t.belongs_to :chapter, index: true
-      t.integer :path1_id
-      t.integer :path2_id
-      t.integer :pathPrev_id
+
       t.timestamps
     end
 

@@ -22,5 +22,5 @@ end
 
 private
   def chapter_params
-    params.permit(:id, :name, :content, :path1, :path2)
+    params.permit(:id, :name, :content, :path1_id, :path2_id)
   end
