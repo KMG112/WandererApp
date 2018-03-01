@@ -12,27 +12,39 @@
   <%= @chapter.email %>
 </p>
 
-
 <p>
   <strong>Content:</strong>
   <%= @chapter.content %>
 </p>
 
-
- <strong>Path2-Content:</strong>
-  <% @f = @chapter.paths.find( @chapter.path1_id).content %>
-<%= link_to @f, chapter_path('new') %>
-
-</p>
-
-<p>
-  <strong>Path2-Content:</strong>
-  <%  @y = @chapter.paths.find( @chapter.path2_id).content %>
-
-	<%= link_to @y, chapter_path('new') %> 
-	<!-- add write of this path to chapter -->
-
-</p>
+<% if @chapter.path1_id && @chapter.path2_id && @chapter.pathPrev_id %>
 
 
+ <p>
+   <strong>Path2-Content:</strong>
+    <% @f = @chapter.paths.find( @chapter.path1_id).content %>
+    <%= link_to @f, chapter_path('new') %>
+
+  </p>
+
+  <p>
+    <strong>Path2-Content:</strong>
+    <%  @y = @chapter.paths.find( @chapter.path2_id).content %>
+    <%= link_to @y, chapter_path('new') %> 
+  </p>
+
+
+<% else %>
+
+    <p>
+     <strong>Path2-Content:</strong>
+     <%= @chapter.paths.find( @chapter.path1_id).content %>
+    </p>
+
+    <p>
+      <strong>Path2-Content:</strong>
+     <%= @chapter.paths.find( @chapter.path2_id).content %>
+    </p>
+
+<% end %>
   <%= link_to 'home', chapter_path('index') %> 

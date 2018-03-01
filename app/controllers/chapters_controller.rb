@@ -4,6 +4,11 @@ class ChaptersController < ApplicationController
 	def index
 		
 		@chapter = Chapter.order("RANDOM()").first
+		if @chapter.path1_id && @chapter.path2_id 
+
+			@chapter = Chapter.order("RANDOM()").first
+
+		end
 
 	end
 
@@ -58,6 +63,7 @@ class ChaptersController < ApplicationController
 	def show
 
 		@chapter = Chapter.find(params[:id])
+
 		
   	end
 end

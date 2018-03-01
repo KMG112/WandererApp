@@ -13,7 +13,8 @@ c = Chapter.create!(
     email: 'test1@gmail.com',
     content: '1 This is the first test',
     path1_id: p.id,
-    path2_id: o.id
+    path2_id: o.id,
+    pathPrev_id: 100000
 
 	)
 
