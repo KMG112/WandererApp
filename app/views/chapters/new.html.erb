@@ -16,30 +16,33 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
     <%= f.label :content %><br>
     <%= f.text_field :content %>
   </div>
 
   <%= f.fields_for :plot do |p| %>
 
-    <%= p.fields_for(Plot.create) do |pa| %>
+    <%= p.fields_for (Path.create) do |pa| %>
       <div class="field">    
-        <%= pa.label :content %><br>
-        <%= pa.text_field :content %>
+        <%= text_area_tag 'chapter[plots][paths][path1content]', pa.object.content %>
+        <%= hidden_field_tag 'chapter[plots][paths][path1id]', pa.object.id %>
        
       </div> 
     <% end %>
-
-    <%= p.fields_for(Plot.create)) do |pa| %>
+      <%= p.fields_for (Path.create) do |pa| %>
       <div class="field">
-        <%= pa.label :content %><br>
-        <%= pa.text_field :content %>
-        
-
+        <%= text_area_tag 'chapter[plots][paths][path2content]', pa.object.content %>
+        <%= hidden_field_tag 'chapter[plots][paths][path2id]', pa.object.id %>
       </div> 
-    <% end %>
     
+    <% end %>
+
   <% end %>
+
 
 
   <div class="actions">
