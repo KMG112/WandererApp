@@ -1,7 +1,7 @@
 <% @ps = @chapter.paths %>
 
 <% @p1 = @chapter.path1_id %>
-<% @p2 = @chapter.path1_id %>
+<% @p2 = @chapter.path2_id %>
 
 
 <p>
@@ -21,20 +21,21 @@
   <%= @chapter.content %>
 </p>
 
-<p>
-  <strong>Path1:</strong>
-  <%= @chapter.paths.find( @p1).content %>
-</p>
+
  <strong>Path2-Content:</strong>
-  <%= @chapter.paths.find( @p2).content %>
+  <% @f = @chapter.paths.find( @p1).content %>
+<%= link_to @f, chapter_path('new') %>
 
 </p>
-<p>
-  <strong>Path2:</strong>
 
-</p>
 <p>
   <strong>Path2-Content:</strong>
-  <%= @chapter.paths.find( @p2).content %>
+  <%  @y = @chapter.paths.find( @p2).content %>
+
+	<%= link_to @y, chapter_path('new') %> 
+	<!-- add write of this path to chapter -->
 
 </p>
+
+
+  <%= link_to 'home', chapter_path('index') %> 

@@ -3,9 +3,9 @@ class CreatePlots < ActiveRecord::Migration[5.1]
     
 
     create_table :chapters, force: :cascade do |t|
-    t.string :name
-    t.string :email
-    t.string :content
+    t.text :name
+    t.text :email
+    t.text :content
     t.integer :path1_id
     t.integer :path2_id
     t.integer :pathPrev_id

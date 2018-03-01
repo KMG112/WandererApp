@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 20180222213439) do
   enable_extension "plpgsql"
 
   create_table "chapters", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "content"
+    t.text "name"
+    t.text "email"
+    t.text "content"
     t.integer "path1_id"
     t.integer "path2_id"
     t.integer "pathPrev_id"
