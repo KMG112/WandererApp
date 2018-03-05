@@ -22,11 +22,13 @@ ActiveRecord::Schema.define(version: 20180222213439) do
     t.integer "path1_id"
     t.integer "path2_id"
     t.integer "pathPrev_id"
+    t.boolean "lowest", default: true
     t.datetime "created_at", null: false
   end
 
   create_table "paths", force: :cascade do |t|
     t.text "content"
+    t.boolean "used", default: false
     t.datetime "created_at", null: false
   end
 

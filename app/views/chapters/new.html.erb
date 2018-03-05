@@ -1,3 +1,8 @@
+<p>
+  <strong>Previous Path Content:</strong><br />
+  <%= Path.find(@chapter.pathPrev_id).content  %>
+</p>
+
 <%= form_for(@chapter) do |f| %>
   <% if @chapter.errors.any? %>
     <div id="error_explanation">
@@ -46,6 +51,6 @@
 
 
   <div class="actions">
-    <%= f.submit :onclick => "inject_prev_path_data()" %>
+    <%= f.button :submit, name:"pathPrev", value: @chapter.pathPrev_id %>
   </div>
 <% end %>

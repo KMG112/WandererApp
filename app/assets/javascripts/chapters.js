@@ -1,3 +1,6 @@
-inject_prev_path_data(this){
- alert("hey") 
-}
+console.log("Asdfasdafa")
+$(document).on('turbolinks:load', function() {
+
+  alert("Asdfasdafa")
+
+});

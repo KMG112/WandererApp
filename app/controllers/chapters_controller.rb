@@ -3,30 +3,42 @@
 class ChaptersController < ApplicationController
 	def index
 		
-		@chapter = Chapter.order("RANDOM()").first
-		if @chapter.path1_id && @chapter.path2_id 
-
-			@chapter = Chapter.order("RANDOM()").first
-
-		end
+		@chapter = Chapter.order("RANDOM()").where(lowest: true).first
+		
 
 	end
 
 	
 	def new
-		@chapter = Chapter.new
+
+		@usedPath = Path.find(params[:id])
+		@usedPath.update(used: true)
+		@chapter = Chapter.new(pathPrev_id: params[:id])
+		# @usedPath.chapters << @chapter
 		@chapter.plots.build
+
+
+		@last =Chapter.find(params[:chapter_id])
+
+		if  @last.paths.where(used: false).count == 0
+			
+			@last.update(lowest: false)
+		end
 
 	end
 
 	def create
+
+
 		@chapter = Chapter.new(chapter_params)
+		
 		@path1 = Path.find(params[:chapter][:plots][:paths][:path1id])
 		@path2 = Path.find(params[:chapter][:plots][:paths][:path2id])
 		
+		
 
   		if @chapter.save & @path1.save & @path2.save
- 
+ 			@chapter.pathPrev_id = Path.find(params[:pathPrev]).id
 			@chapter.update(content: params[:chapter][:content], email: params[:chapter][:email],name: params[:chapter][:name])
 			@chapter.update(path1_id: @path1.id)
 			@chapter.update(path2_id: @path2.id)
@@ -46,7 +58,7 @@ class ChaptersController < ApplicationController
 		      format.json { render json: @chapter.errors, status: :unprocessable_entity }
 		  end
 	    end
-
+	    debugger
 	end
 
 	def update
@@ -64,11 +76,10 @@ class ChaptersController < ApplicationController
 
 		@chapter = Chapter.find(params[:id])
 
-		
   	end
 end
 
 private
   def chapter_params
-    params.require(:chapter).permit(:id, :name, :content, :email, :path1_id, :path2_id,:pathPrev_id, plot_attributes: [:plot_id, path_attributes: [:content]])
+    params.require(:chapter).permit(:id, :name, :lowest, :content, :email, :path1_id, :path2_id,:pathPrev_id, plot_attributes: [:plot_id, path_attributes: [:content, :used]])
   end
