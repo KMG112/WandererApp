@@ -1,2 +1,11 @@
-<%= @chapter.inspect %>
-<%= link_to 'Start', chapter_path(:id => @chapter.id) %>
+<% @chapter.inspect %>
+
+<div class="startBodyWrapper">
+	<div class="startAlignButtonWrapper">
+		<div class="startPageButtonWrapper">
+			<%= link_to 'Start here', chapter_path(:id => @chapter.id), class: "startPageButton" %>
+		</div>
+
+	</div>
+</div>
+

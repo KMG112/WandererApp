@@ -76,6 +76,10 @@ class ChaptersController < ApplicationController
 		@chapter = Chapter.find(params[:id])
 
   	end
+
+  	def list
+  		@chapter = Chapter.all
+  	end
 end
 
 private
