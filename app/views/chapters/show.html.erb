@@ -17,24 +17,35 @@
   <%= @chapter.content %>
 </p>
 
+<% if URI(request.referer).path == '/chapters/new' %>
 
+    <p>
+     <strong>Path2-Content:</strong>
+     <%= @chapter.paths.find( @chapter.path1_id).content %>
+    </p>
+
+    <p>
+      <strong>Path2-Content:</strong>
+     <%= @chapter.paths.find( @chapter.path2_id).content%>
+    </p>
+ 
+
+<% else %>
 
 <%  @f = @chapter.paths.find( @chapter.path1_id) %>
 <%  @y = @chapter.paths.find( @chapter.path2_id) %>
 <% if not @f.used %>
     <p>
-     <strong>Path2-Content:</strong>
+     <strong>Path1-Content:</strong>
       
-      <%= link_to @f.content, {:action => "new", id:@chapter.path1_id, chapter_id: @chapter.id}%>
-
+      <%= link_to @f.content, new_chapter_path(:id => @chapter.path1_id, chapter_id: @chapter.id) %>
     </p>
 
 <% else %>
 
   <p>
-     <strong>Path2-Content:</strong>
-      <%= link_to @f.content, chapter_path(:id => Chapter.find_by(pathPrev_id: 3), path_id:@chapter.path2_id, chapter_id: @chapter.id) %> 
-      
+     <strong>Path1-Content:</strong>
+      <%= link_to @f.content, chapter_path(:id => Chapter.find_by(pathPrev_id: @f.id), path_id:@chapter.path2_id, chapter_id: @chapter.id) %> 
     </p>
     <p>
 
@@ -42,15 +53,16 @@
 <% if not @y.used %>
       <strong>Path2-Content:</strong>
       
-      <%= link_to @y.content, {:action => "new", id:@chapter.path2_id, chapter_id: @chapter.id} %> 
+      <%= link_to @y.content, new_chapter_path(:id => @chapter.path2_id, chapter_id: @chapter.id) %>
     </p>
 <% else %>
     <p>
       <strong>Path2-Content:</strong>
-      <%= link_to @y.content, chapter_path(:id => Chapter.find_by(pathPrev_id: 3), path_id:@chapter.path2_id, chapter_id: @chapter.id) %> 
+      <%= link_to @y.content, chapter_path(:id => Chapter.find_by(pathPrev_id: @y.id), path_id:@chapter.path2_id, chapter_id: @chapter.id) %> 
      
     </p>
 
+<% end %>
 
 <% end %>
 

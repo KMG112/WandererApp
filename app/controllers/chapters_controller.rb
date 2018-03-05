@@ -14,7 +14,6 @@ class ChaptersController < ApplicationController
 		@usedPath = Path.find(params[:id])
 		@usedPath.update(used: true)
 		@chapter = Chapter.new(pathPrev_id: params[:id])
-		# @usedPath.chapters << @chapter
 		@chapter.plots.build
 
 
@@ -58,7 +57,7 @@ class ChaptersController < ApplicationController
 		      format.json { render json: @chapter.errors, status: :unprocessable_entity }
 		  end
 	    end
-	    debugger
+
 	end
 
 	def update
