@@ -8,8 +8,7 @@
         <%= @chapter.content %>
       </div>
 
-  
-    <% if @referrer =~ /^(\/chapters\/new\/)/ || @referrer == '/'  %>
+    <% if @referrer.to_s =~ /\/chapters\/new/  %>
 
        <div class="showPagePathContent">
          <%= @f.content %>
