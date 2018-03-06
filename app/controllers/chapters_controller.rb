@@ -71,11 +71,12 @@ class ChaptersController < ApplicationController
 	end
 
 	def show
-		
 		@referrer = request.referrer
-		@referrer = @referrer.remove("http://localhost:3000") 
+		if @referrer
+			@referrer = @referrer.remove("http://localhost:3000") 
+		end
 		@chapter = Chapter.find(params[:id])
-		
+
   	end
 
   	def list
