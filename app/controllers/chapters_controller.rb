@@ -12,7 +12,6 @@ class ChaptersController < ApplicationController
 	def new
 
 		@usedPath = Path.find(params[:id])
-		@usedPath.update(used: true)
 		@chapter = Chapter.new(pathPrev_id: params[:id])
 		@chapter.plots.build
 
@@ -23,10 +22,11 @@ class ChaptersController < ApplicationController
 			
 			@last.update(lowest: false)
 		end
-
 	end
 
 	def create
+		@usedPath = Path.find(params[:pathPrev])
+		@usedPath.update(used: true)
 
 
 		@chapter = Chapter.new(chapter_params)
@@ -71,10 +71,11 @@ class ChaptersController < ApplicationController
 	end
 
 	def show
-		@referer = request.original_fullpath
-		@current_uri = request.env['PATH_INFO']
+		
+		@referrer = request.referrer
+		@referrer = @referrer.remove("http://localhost:3000") 
 		@chapter = Chapter.find(params[:id])
-
+		
   	end
 
   	def list

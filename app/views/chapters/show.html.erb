@@ -1,5 +1,5 @@
 <div id="showBodyWrapper">
-<% @chapter.inspect %>
+<%= @referrer %>
 <%  @f = @chapter.paths.find( @chapter.path1_id) %>
 <%  @y = @chapter.paths.find( @chapter.path2_id) %>
 
@@ -8,8 +8,8 @@
         <%= @chapter.content %>
       </div>
 
-
-    <% if @referer == '/chapters/new' || @referer == '/'  %>
+  
+    <% if @referrer =~ /^(\/chapters\/new\/)/ || @referrer == '/'  %>
 
        <div class="showPagePathContent">
          <%= @f.content %>
@@ -84,3 +84,4 @@
 
   </div>
 </div>
+

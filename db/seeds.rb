@@ -9,7 +9,7 @@
 p = Path.create(content: "A bookstore sounds like the perfect way to spend an afternoon.",used: true)
 o = Path.create(content: "You got no time for books, let's keep rolling and see where the day takes you. ",used: true)
 
-e = Path.create(content: "Take the book upstairs and see about this reading room.")
+e = Path.create(content: "Take the book upstairs and see about this reading room.",used: true)
 f = Path.create(content: "Follow the girl to the back to check out the greenhouse.")
 
 q = Path.create(content: "Lean in closer to the talking salamander and ask why it's in trouble and how you can help.")
@@ -17,6 +17,7 @@ w = Path.create(content: "Nope. No talking salamander is going to play you. Snat
 
 a = Path.create(content: "Take the drink, by now you're hands are shaking and it might help settle your nerves.")
 s = Path.create(content: "This place creeps you out. Decline the drink and head for the exit as quickly as possible.")
+
 
 c = Chapter.create(
 	name: 'Administrator',
@@ -85,7 +86,7 @@ k = Chapter.create(
     name: "Bear",
     email: "chris.j.gannon@gmail.com",
     content: "
-You walk up the narrow flight of stairs to a small landing tight against the ceiling, the exposed rafters still punctuated by ceramic tubes from the original wiring. There is a single solid wood door embellished with a detailed carving of a serpent - each scale rendered with a long mark from the chisel, feathering off it's body as if to create an saurian aura - and a hand lettered sign reading:
+You walk up the narrow flight of stairs to a small landing tight against the ceiling, the exposed rafters still punctuated by ceramic tubes from the original wiring. There is a single solid wood door embellished with a detailed carving of a serpent - each scale rendered with a long mark from the chisel, feathering off it's body as if to new an saurian aura - and a hand lettered sign reading:
 
 Quetzaano
 A Fine Mezcaleria
@@ -102,6 +103,7 @@ You turn around to leave but the door you entered is now on the other side of th
     pathPrev_id: e.id
 
     )
+
 
 c.plots.create(path: p)
 c.paths << o
