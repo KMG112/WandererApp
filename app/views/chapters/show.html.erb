@@ -1,69 +1,86 @@
-
+<div class="showBodyWrapper">
 <% @chapter.inspect %>
-
-<p>
-  <strong>Name:</strong>
-  <%= @chapter.name %>
-</p>
- 
-
-<p>
-  <strong>Email:</strong>
-  <%= @chapter.email %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @chapter.content %>
-</p>
-
-<% if URI(request.referer).path == '/chapters/new' %>
-
-    <p>
-     <strong>Path2-Content:</strong>
-     <%= @chapter.paths.find( @chapter.path1_id).content %>
-    </p>
-
-    <p>
-      <strong>Path2-Content:</strong>
-     <%= @chapter.paths.find( @chapter.path2_id).content%>
-    </p>
- 
-
-<% else %>
-
 <%  @f = @chapter.paths.find( @chapter.path1_id) %>
 <%  @y = @chapter.paths.find( @chapter.path2_id) %>
-<% if not @f.used %>
-    <p>
-     <strong>Path1-Content:</strong>
-      
-      <%= link_to @f.content, new_chapter_path(:id => @chapter.path1_id, chapter_id: @chapter.id) %>
-    </p>
 
-<% else %>
+  <div class="showBody">
+      <div class="showChapterContent">
+        <%= @chapter.content %>
+      </div>
 
-  <p>
-     <strong>Path1-Content:</strong>
-      <%= link_to @f.content, chapter_path(:id => Chapter.find_by(pathPrev_id: @f.id), path_id:@chapter.path2_id, chapter_id: @chapter.id) %> 
-    </p>
-    <p>
 
-<%end%>
-<% if not @y.used %>
-      <strong>Path2-Content:</strong>
-      
-      <%= link_to @y.content, new_chapter_path(:id => @chapter.path2_id, chapter_id: @chapter.id) %>
-    </p>
-<% else %>
-    <p>
-      <strong>Path2-Content:</strong>
-      <%= link_to @y.content, chapter_path(:id => Chapter.find_by(pathPrev_id: @y.id), path_id:@chapter.path2_id, chapter_id: @chapter.id) %> 
+    <% if @referer == '/chapters/new' || @referer == '/' %>
+
+       <div class="showPagePathContent">
+         <%= @f.content %>
+        </div>
+
+        <div class="showPagePathContent">
+         <%= @y.content %>
+        </div>
      
-    </p>
 
-<% end %>
+    <% else %>
 
-<% end %>
 
-  <%= link_to 'home', chapter_path('index') %> 
+      <% if not @f.used %>
+          <div class="showPagePathContentWrapper">
+
+            <div class="showPagePathContent">
+              <%=@f.content %>
+            </div>
+
+            <div class="newChapterButtonWrapper">
+              <div class="newChapterButton">
+                <%= link_to 'GO!', new_chapter_path(:id => @chapter.path1_id, chapter_id: @chapter.id) %>
+              </div>
+            </div>
+          </div>
+      <% else %>
+            <div class="showPagePathContentWrapper">
+              <div class="showPagePathContent">
+                <%= @f.content %>
+              </div>
+              
+              
+              <div class="keepGoingButtonWrapper">
+                 <div class="keepGoingButton">
+                    <%= link_to 'Keep going', chapter_path(:id => Chapter.find_by(pathPrev_id: @f.id), path_id:@chapter.path1_id, chapter_id: @chapter.id) %> 
+                 </div>
+              </div>
+            </div>
+
+      <%end%>
+      <% if not @y.used %>
+            <div class="showPagePathContentWrapper">
+              <div class="showPagePathContent">
+                <%=@y.content %>
+              </div>
+              <div class="newChapterButtonWrapper">
+                <div class="newChapterButton">
+                  <%= link_to 'GO!', new_chapter_path(:id => @chapter.path2_id, chapter_id: @chapter.id) %>
+                </div>
+              </div>
+            </div>
+      <% else %>
+            <div class="showPagePathContentWrapper">
+
+              <div class="showPagePathContent">
+                <%=@y.content %>
+              </div>
+
+               <div class="keepGoingButtonWrapper">
+                 <div class="keepGoingButton">
+                    <%= link_to 'Keep going', chapter_path(:id => Chapter.find_by(pathPrev_id: @y.id), path_id:@chapter.path2_id, chapter_id: @chapter.id) %> 
+                 </div>
+              </div>
+            </div>
+
+      <% end %>
+
+    <% end %>
+
+    <%= link_to 'Home', chapter_path('index'), class: "homeButton" %> 
+
+  </div>
+</div>

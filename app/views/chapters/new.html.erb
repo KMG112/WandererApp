@@ -1,56 +1,64 @@
-<p>
-  <strong>Previous Path Content:</strong><br />
-  <%= Path.find(@chapter.pathPrev_id).content  %>
-</p>
+<div class="newChapterBody">
 
-<%= form_for(@chapter) do |f| %>
-  <% if @chapter.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@chapter.errors.count, "error") %> prohibited this chapter from being saved:</h2>
+  <div class="newChapterContentForm">
+    <p>
+      <strong>Previous Path Content:</strong><br />
+      <%= Path.find(@chapter.pathPrev_id).content  %>
+    </p>
 
-      <ul>
-      <% @chapter.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+    <%= form_for(@chapter) do |f| %>
+      <% if @chapter.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@chapter.errors.count, "error") %> prohibited this chapter from being saved:</h2>
+
+          <ul>
+          <% @chapter.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_field :content %>
-  </div>
+      <div class="newChapterNameEmail">
+        <div class="newChapterName">
+          <%= f.label :name %><br>
+          <%= f.text_field :name %>
+        </div>
+        <div class="newChapterEmail">
+          <%= f.label :email %><br>
+          <%= f.text_field :email %>
+        </div>
+      </div>
 
-  <%= f.fields_for :plot do |p| %>
+      <div class="newChapterContent">
+        <%= f.label :content %><br>
+        <%= f.text_field :content %>
+      </div>
 
-    <%= p.fields_for (Path.create) do |pa| %>
-      <div class="field">    
-        <%= text_area_tag 'chapter[plots][paths][path1content]', pa.object.content %>
-        <%= hidden_field_tag 'chapter[plots][paths][path1id]', pa.object.id %>
-       
-      </div> 
+      <%= f.fields_for :plot do |p| %>
+      
+        <%= p.fields_for (Path.create) do |pa| %>
+          <div class="newChapterContentPath1">    
+            <%= text_area_tag 'chapter[plots][paths][path1content]', pa.object.content %>
+            <%= hidden_field_tag 'chapter[plots][paths][path1id]', pa.object.id %>
+           
+          </div> 
+        <% end %>
+          <%= p.fields_for (Path.create) do |pa| %>
+          <div class="newChapterContentPath2">
+            <%= text_area_tag 'chapter[plots][paths][path2content]', pa.object.content %>
+            <%= hidden_field_tag 'chapter[plots][paths][path2id]', pa.object.id %>
+          </div> 
+        
+        <% end %>
+
+      <% end %>
+
+
+
+      <div class="actions">
+        <%= f.button :submit, name:"pathPrev", value: @chapter.pathPrev_id %>
+      </div>
     <% end %>
-      <%= p.fields_for (Path.create) do |pa| %>
-      <div class="field">
-        <%= text_area_tag 'chapter[plots][paths][path2content]', pa.object.content %>
-        <%= hidden_field_tag 'chapter[plots][paths][path2id]', pa.object.id %>
-      </div> 
-    
-    <% end %>
-
-  <% end %>
-
-
-
-  <div class="actions">
-    <%= f.button :submit, name:"pathPrev", value: @chapter.pathPrev_id %>
   </div>
-<% end %>
+</div>

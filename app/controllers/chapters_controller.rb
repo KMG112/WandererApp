@@ -79,6 +79,7 @@ class ChaptersController < ApplicationController
 
   	def list
   		@chapter = Chapter.all
+  		@referer = URI(request.referer).path
   	end
 end
 

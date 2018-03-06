@@ -36,8 +36,9 @@
 html{
 	height:100%;
 	font-family: "Caslon Pro", Courier, serif;
+
 }
-body{height: 100%}
+body{padding:0;margin:0;}
 .startBodyWrapper{
 	position: relative;
 	width:100%;
@@ -75,4 +76,105 @@ body{height: 100%}
 	font-size: 54px;
 	line-height: 48px;
 	text-align: center;
+
+}
+.keepGoingButtonWrapper{
+	position:relative;
+	height:100px;
+	width:100px;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+	text-align: center;
+	box-shadow: 5px 5px 20px #000;
+	display: inline-block;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+	border: 3px solid red;
+}
+
+.keepGoingButtonWrapper .keepGoingButton{
+	position:absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color:#fff ;
+	text-decoration: none;
+
+}
+.keepGoingButtonWrapper .keepGoingButton a{
+	color:#fff;
+	text-decoration: none;
+	
+}
+.newChapterBody{
+
+}
+.showChapterContent{
+	color:#fff;
+    font-size: 24px;
+    line-height: 45px;
+}
+.showBody .showChapterContent::first-letter{
+	font-size: 80px;
+	float: left;
+    line-height: 32px;
+    padding-top: 30px;
+    padding-right: 18px;
+}
+.showBodyWrapper{
+	background:blue;
+	height:100%;
+	padding:0;
+}
+.showBodyWrapper .showBody{
+	padding:10% 20%;
+}
+.showPagePathContentWrapper{
+	width:100%;
+	display: table;
+	margin: 30px 0;
+}
+.showPagePathContentWrapper .showPagePathContent{
+	display: table-cell;
+	vertical-align: middle;
+	width:70%;
+	color: #fff;
+	font-size: 25px
+}
+
+.homeButton{
+	color:#fff;
+	text-decoration: none;
+
+}
+.newChapterButtonWrapper{
+	position:relative;
+	height:100px;
+	width:100px;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+	background: #ff0000;
+	text-align: center;
+	box-shadow: 5px 5px 20px #000;
+	display: inline-block;
+
+}
+
+.newChapterButtonWrapper .newChapterButton{
+	position:absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color:#fff ;
+	text-decoration: none;
+
+}
+.newChapterButtonWrapper .newChapterButton a{
+	color:#fff;
+	text-decoration: none;
+	
+
 }
