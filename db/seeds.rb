@@ -9,7 +9,7 @@
 p = Path.create(content: "A bookstore sounds like the perfect way to spend an afternoon.",used: true)
 o = Path.create(content: "You got no time for books, let's keep rolling and see where the day takes you. ",used: true)
 
-e = Path.create(content: "Take the book upstairs and see about this reading room.", used: true)
+e = Path.create(content: "Take the book upstairs and see about this reading room.")
 f = Path.create(content: "Follow the girl to the back to check out the greenhouse.")
 
 q = Path.create(content: "Lean in closer to the talking salamander and ask why it's in trouble and how you can help.")
@@ -52,7 +52,7 @@ You browse the books. They're mostly science books with an emphasis on anthropol
 'That's my favorite one' the bookkeeper's daughter tells you without breaking from the phone. 'You should check out our greenhouse out back. I've been growing some weird stuff.'",
     path1_id: e.id,
     path2_id: f.id,
-    pathPrev_id: 1
+    pathPrev_id: p.id
 
 	)
 
@@ -77,7 +77,7 @@ You reach down to dribble a little more honey on your bread and stop short. Perc
 please help me",
     path1_id: q.id,
     path2_id: w.id,
-    pathPrev_id: 1
+    pathPrev_id: o.id
 
     )
 
@@ -99,7 +99,7 @@ You turn around to leave but the door you entered is now on the other side of th
 'You look lost.' He says, 'Can I offer you a drink?'",
     path1_id: a.id,
     path2_id: s.id,
-    pathPrev_id:e.id
+    pathPrev_id: e.id
 
     )
 

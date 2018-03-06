@@ -62,7 +62,6 @@ class ChaptersController < ApplicationController
 
 	def update
 		@chapter = Chapter.find(params[:id])
-		
 
 		if @chapter.update(chapter_params)
             redirect_to action: "show", id: :chapter
@@ -72,14 +71,15 @@ class ChaptersController < ApplicationController
 	end
 
 	def show
-
+		@referer = request.original_fullpath
+		@current_uri = request.env['PATH_INFO']
 		@chapter = Chapter.find(params[:id])
 
   	end
 
   	def list
   		@chapter = Chapter.all
-  		@referer = URI(request.referer).path
+
   	end
 end
 
