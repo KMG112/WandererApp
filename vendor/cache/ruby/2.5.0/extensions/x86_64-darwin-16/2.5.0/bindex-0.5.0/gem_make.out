@@ -1,0 +1,15 @@
+current directory: /Users/matt/Documents/FreelanceWD/Wanderer/WandererApp/vendor/cache/ruby/2.5.0/gems/bindex-0.5.0/ext/bindex
+/Users/matt/.rvm/rubies/ruby-2.5.0/bin/ruby -r ./siteconf20180307-82302-1hoc7ik.rb extconf.rb
+creating Makefile
+
+current directory: /Users/matt/Documents/FreelanceWD/Wanderer/WandererApp/vendor/cache/ruby/2.5.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" clean
+
+current directory: /Users/matt/Documents/FreelanceWD/Wanderer/WandererApp/vendor/cache/ruby/2.5.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR="
+compiling cruby.c
+linking shared-object bindex/cruby.bundle
+
+current directory: /Users/matt/Documents/FreelanceWD/Wanderer/WandererApp/vendor/cache/ruby/2.5.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 cruby.bundle ./.gem.20180307-82302-1p8d055/bindex

@@ -6,7 +6,7 @@
     		<%= chapter.content %>
     	</div>
       <div class="listButton">
-      	<%= button_to "Delete", chapter_path(chapter.id), onclick: "return alert('Hey!)'", method: :delete%>
+      	<%= button_to "Delete", chapter_path(chapter.id),method: :delete, data: { confirm: 'Are you sure?' } %>
       </div>
     </li>
   <% end %>
