@@ -146,6 +146,15 @@ textarea{border: 1px solid transparent;border-top: none;border-bottom: 1px solid
 	width:60%;
 	margin:auto;
 }
+
+#newChapterBody .prevPath{
+
+	margin-bottom: 20px;
+	line-height: 40px;
+	background:#d3d3d3;
+	padding: 5px;
+	border: 1px solid transparent;border-top: none;border-bottom: 1px solid #DDD;box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+}
 #newChapterBody .newChapterNameEmail{
 	margin-bottom: 20px;
 }
@@ -158,7 +167,8 @@ textarea{border: 1px solid transparent;border-top: none;border-bottom: 1px solid
 	font-family: "Caslon Pro", Courier, serif;
 	padding-top: 5px;
 	padding-left: 5px;
-	line-height: 0
+	line-height: 0;
+	font-size:25px;
 
 }
 #newChapterBody .newChapterNameEmail .newChapterEmail input{
@@ -167,6 +177,7 @@ textarea{border: 1px solid transparent;border-top: none;border-bottom: 1px solid
 	font-family: "Caslon Pro", Courier, serif;
 	padding-top: 5px;
 	padding-left: 5px;	
+	font-size:25px;
 
 }
 
@@ -196,15 +207,15 @@ textarea{border: 1px solid transparent;border-top: none;border-bottom: 1px solid
 	
 .newChapterContentPath2{border: 3px solid #d3d3d3;}
 
-#newChapterBody .newChapterButtonWrapper{
+#newChapterBody .goChapterButtonWrapper{
 	width: 100%;
 	margin-top: 20px;
 }
 
-#newChapterBody .newChapterButtonWrapper .newChapterButton{
+#newChapterBody .goChapterButtonWrapper .goChapterButton{
 	position:relative;
-	height:100px;
-	width:100px;
+	height:90px;
+	width:90px;
 	-moz-border-radius: 50px;
 	-webkit-border-radius: 50px;
 	border-radius: 50px;
@@ -213,20 +224,54 @@ textarea{border: 1px solid transparent;border-top: none;border-bottom: 1px solid
 	box-shadow: 5px 5px 20px #000;
 	display: inline-block;
 	color:#fff ;
-	font-size: 35px;
 	margin:auto;
     font-family: "Caslon Pro", Courier, serif;
 	transform: translate(-50%, 0%);
 	left:50%;
+	font-style: italic;
+    font-size: 32px;
+    border:none;
 }
 
 
+#showBodyWrapper .newChapterButtonWrapper{
+	position:relative;
+	height:90px;
+	width:90px;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+	background: #ff0000;
+	text-align: center;
+	box-shadow: 5px 5px 20px #000;
+	display: inline-block;
+
+}
+
+#showBodyWrapper .newChapterButtonWrapper .newChapterButton{
+	position:absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color:#fff ;
+	text-decoration: none;
+	font-style: italic;
+
+}
+#showBodyWrapper .newChapterButtonWrapper .newChapterButton a{
+	color:#fff;
+	text-decoration: none;
+	font-style: italic;
+    font-size: 32px;
+}
 
 
 
 #newChapterBody .newChapterMessage{
 	background: #d3d3d3;
+	padding-left:5px;
 }
+
 
 #showBodyWrapper{
 	

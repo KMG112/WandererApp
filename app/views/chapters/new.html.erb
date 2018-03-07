@@ -1,9 +1,9 @@
 <div id="newChapterBody">
 
   <div class="newChapterContentForm">
-    <p>
+    <div class="prevPath">
       <%= Path.find(@chapter.pathPrev_id).content  %>
-    </p>
+    </div>
 
     <%= form_for(@chapter) do |f| %>
       <% if @chapter.errors.any? %>
@@ -55,8 +55,8 @@
 
      <%= hidden_field_tag 'chapter[:pathPrev]', @usedPath.id %>
 
-      <div class="newChapterButtonWrapper">
-        <%= f.button "GO!", name:"pathPrev", value: @chapter.pathPrev_id, class: "newChapterButton" %>
+      <div class="goChapterButtonWrapper">
+        <%= f.button "Go!", name:"pathPrev", value: @chapter.pathPrev_id, class: "goChapterButton" %>
       </div>
     <% end %>
   </div>
