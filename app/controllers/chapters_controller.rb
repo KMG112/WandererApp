@@ -76,13 +76,23 @@ class ChaptersController < ApplicationController
 			@referrer = @referrer.remove("http://localhost:3000") 
 		end
 		@chapter = Chapter.find(params[:id])
-
   	end
 
   	def list
-  		@chapter = Chapter.all
+  		@chapters = Chapter.all
 
   	end
+
+  	def destroy
+  		@chapter = Chapter.find(params[:id])
+  		@paths = Path.all
+  		@paths.find(@chapter.pathPrev_id).update(used: false)
+
+  		@chapter.destroy
+
+  		redirect_to '/list'
+  	end
+
 end
 
 private

@@ -1,9 +1,11 @@
 
 
 *{padding:0;margin:0;}
-html{min-height:100%;height: 100%;font-family: "Caslon Pro", Courier, serif;background: #000}
+html{min-height:100%;height: 100%;font-family: "Caslon Pro", Courier, serif;background: #000;}
 body{min-height: 100%;height: 100%;}
-
+html::-webkit-scrollbar {
+ display: none;
+}
 @font-face {
 	font-family: "Caslon Pro";
 	src: url('<%= asset_path("acaslonproregular.otf")%>') format("opentype");
@@ -233,4 +235,30 @@ body{min-height: 100%;height: 100%;}
 	text-decoration: none;
 	
 
+}
+
+
+
+
+
+
+
+.listBody{
+	height: 100%;
+	min-height:100%;
+	background: #fff;
+	padding:5% 10%;
+}
+.listBody li{
+	margin-bottom: 20px;
+}
+.listContent{
+	width:70%;
+	display: inline-block;
+
+}
+
+.listButton{
+	width:29%;
+	display: inline-block;
 }

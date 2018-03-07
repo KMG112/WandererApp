@@ -1,8 +1,15 @@
-<ul>
-  <% @chapters.each do |chapter| %>
+<div class="listBody">
+<ul >
+  <% @chapters.reverse.each do |chapter| %>
     <li>
-      <%= chapter.content %>
-      <%= link_to "Delete", list_path(@list),:data => {:confirm => "You sure?",:method => "delete"} %>
+    	<div class="listContent">
+    		<%= chapter.content %>
+    	</div>
+      <div class="listButton">
+      	<%= button_to "Delete", chapter_path(chapter.id), onclick: "return alert('Hey!)'", method: :delete%>
+      </div>
     </li>
   <% end %>
 </ul>
+
+</div>

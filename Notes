@@ -29,3 +29,4 @@ git reset --hard HEAD
 
     has_many :reverse_paths, foreign_key: "plot_id", class_name: "Plot"
     has_many :followers, through: :reverse_paths, source: :follower
+
