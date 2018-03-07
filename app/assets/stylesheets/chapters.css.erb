@@ -1,11 +1,28 @@
 
 
-*{padding:0;margin:0;}
+*{padding:0;margin:0;box-sizing : border-box;}
 html{min-height:100%;height: 100%;font-family: "Caslon Pro", Courier, serif;background: #000;}
 body{min-height: 100%;height: 100%;}
-html::-webkit-scrollbar {
- display: none;
+html::-webkit-scrollbar {display: none;}
+input{border: 1px solid transparent;border-top: none;border-bottom: 1px solid #DDD;box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;}
+textarea{border: 1px solid transparent;border-top: none;border-bottom: 1px solid #DDD;box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
 }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
+
+    
+
 @font-face {
 	font-family: "Caslon Pro";
 	src: url('<%= asset_path("acaslonproRegular.otf")%>') format("opentype");
@@ -129,6 +146,12 @@ html::-webkit-scrollbar {
 	width:60%;
 	margin:auto;
 }
+#newChapterBody .newChapterNameEmail{
+	margin-bottom: 20px;
+}
+#newChapterBody .newChapterNameEmail div{
+	border: 3px solid #d3d3d3;
+}
 #newChapterBody .newChapterNameEmail .newChapterName input{
 	width: 100%;
 	height: 40px;
@@ -147,7 +170,11 @@ html::-webkit-scrollbar {
 
 }
 
+#newChapterBody .newChapterContent{
+	border: 3px solid #d3d3d3;
+	margin-bottom:20px;
 
+}
 #newChapterBody textarea#chapter_content{
     font-size: 24px;
     line-height: 45px;
@@ -156,13 +183,50 @@ html::-webkit-scrollbar {
     
 
 }
-#newChapterBody  textarea{
+#newChapterBody textarea{
     font-family: "Caslon Pro", Courier, serif;
     width:100%;
-    height: 40px;
-    padding-left:5px;
-    padding-top: 5px;
+    height: 60px;
+    padding-left: 10px;
+    font-size: 20px;
+    padding-top: 9px;
+    float:right;
 	}
+.newChapterContentPath1{border: 3px solid #d3d3d3;}
+	
+.newChapterContentPath2{border: 3px solid #d3d3d3;}
+
+#newChapterBody .newChapterButtonWrapper{
+	width: 100%;
+	margin-top: 20px;
+}
+
+#newChapterBody .newChapterButtonWrapper .newChapterButton{
+	position:relative;
+	height:100px;
+	width:100px;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+	background: #ff0000;
+	text-align: center;
+	box-shadow: 5px 5px 20px #000;
+	display: inline-block;
+	color:#fff ;
+	font-size: 35px;
+	margin:auto;
+    font-family: "Caslon Pro", Courier, serif;
+	transform: translate(-50%, 0%);
+	left:50%;
+}
+
+
+
+
+
+#newChapterBody .newChapterMessage{
+	background: #d3d3d3;
+}
 
 #showBodyWrapper{
 	
@@ -207,40 +271,6 @@ html::-webkit-scrollbar {
 	text-decoration: none;
 
 }
-.newChapterButtonWrapper{
-	position:relative;
-	height:100px;
-	width:100px;
-	-moz-border-radius: 50px;
-	-webkit-border-radius: 50px;
-	border-radius: 50px;
-	background: #ff0000;
-	text-align: center;
-	box-shadow: 5px 5px 20px #000;
-	display: inline-block;
-
-}
-
-.newChapterButtonWrapper .newChapterButton{
-	position:absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	color:#fff ;
-	text-decoration: none;
-
-}
-.newChapterButtonWrapper .newChapterButton a{
-	color:#fff;
-	text-decoration: none;
-	
-
-}
-
-
-
-
-
 
 
 .listBody{
