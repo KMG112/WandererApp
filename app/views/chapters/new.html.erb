@@ -31,21 +31,21 @@
       </div>
 
       <div class="newChapterContent">
-        <%= f.text_area :content, placeholder: "Begin to answer here...", :required => true  %>
+        <%= f.text_area :content, placeholder: "Begin to answer here...", :required => true ,maxlength: 500  %>
       </div>
 
       <%= f.fields_for :plot do |p| %>
       
         <%= p.fields_for (Path.create) do |pa| %>
           <div class="newChapterContentPath1">    
-            <%= text_area_tag 'chapter[plots][paths][path1content]', pa.object.content, placeholder: "Chapter choice 1",:required => true  %>
+            <%= text_area_tag 'chapter[plots][paths][path1content]', pa.object.content, placeholder: "Chapter choice 1",:required => true,maxlength: 100  %>
             <%= hidden_field_tag 'chapter[plots][paths][path1id]', pa.object.id %>
            
           </div> 
         <% end %>
           <%= p.fields_for (Path.create) do |pa| %>
           <div class="newChapterContentPath2">
-            <%= text_area_tag 'chapter[plots][paths][path2content]', pa.object.content, placeholder: "Chapter choice 2", :required => true  %>
+            <%= text_area_tag 'chapter[plots][paths][path2content]', pa.object.content, placeholder: "Chapter choice 2", :required => true,maxlength: 100  %>
             <%= hidden_field_tag 'chapter[plots][paths][path2id]', pa.object.id %>
           </div> 
         

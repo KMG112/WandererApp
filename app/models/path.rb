@@ -7,9 +7,6 @@ class Path < ApplicationRecord
 
 
 
-
-
-
 end
 
  

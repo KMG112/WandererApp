@@ -4,7 +4,7 @@
 
   <div class="showBody">
       <div class="showChapterContent">
-        <%= @chapter.content %>
+        <%= simple_format(@chapter.content) %>
       </div>
 
     <% if @referrer.to_s =~ /\/chapters\/new/  %>
