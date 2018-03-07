@@ -1,5 +1,5 @@
 class Chapter < ApplicationRecord
-    before_destroy :destroy_paths
+  before_destroy :destroy_paths
 
 	has_many :plots
 	has_many :paths, through: :plots, dependent: :destroy
@@ -8,7 +8,7 @@ class Chapter < ApplicationRecord
     validates :content      , presence: true
     validates :name         , presence: true
 
-
+  after_destroy
    private
 
    def destroy_paths
