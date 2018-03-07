@@ -2,31 +2,15 @@ Notes
 
 rake db:drop db:create db:migrate db:seed
 
-Has to be able to send user to chapter with open path.
-
-User has to be able to navigate to either new chapter or to keep following story
-
-Lock version
-
-path count
-includes_paths
 
 
 git reset --hard HEAD
 
-<%= button_to 'Path1', {:controller => "chapters", :action => "create", :path1 => @chapter.path1, :chapter_id=> @chapter.id, } , :method=>:post  %>
 
 
-<p>
-  <strong>Path2:</strong>
-  <%= @chapter.path2.content %>
-</p>
-<%= button_to 'Path1', {:controller => "chapters", :action => "create", :path1 => @chapter.path2, :chapter_id=> @chapter.id, } , :method=>:post  %>
+bashrc 
+	export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 
-	has_many :path1s, foreign_key: "path1_id"
-    has_many :path, through: :Plots, source: "plot_id"
-
-    has_many :reverse_paths, foreign_key: "plot_id", class_name: "Plot"
-    has_many :followers, through: :reverse_paths, source: :follower
-
+bash profile 
+	 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
