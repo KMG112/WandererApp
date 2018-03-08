@@ -9,11 +9,11 @@
 
     <% if @referrer.to_s =~ /\/chapters\/new/  %>
 
-       <div class="showPagePathContent">
+       <div class="showPagePathContentRedirect">
          <%= @f.content %>
         </div>
 
-        <div class="showPagePathContent">
+        <div class="showPagePathContentRedirect">
          <%= @y.content %>
         </div>
      
@@ -78,7 +78,10 @@
 
     <% end %>
 
+  <div class="homeButtonWrapper">
     <%= link_to 'Home', chapter_path('index'), class: "homeButton" %> 
+
+  </div>
 
   </div>
 </div>
