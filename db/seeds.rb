@@ -22,14 +22,7 @@ s = Path.create(content: "This place creeps you out. Decline the drink and head 
 c = Chapter.create(
 	name: 'Administrator',
     email: 'chris.j.gannon@gmail.com',
-    content: "Today is the first day of sunshine after a long wet winter and you're sitting at a café in East Austin watching a pair of mockingbirds chase each other from power lines to tree branches with quick flashes of white and grey and a group of students are laughing at a table next to you and your coffee is warm in your hands. A more beautiful day would be hard to imagine.
-
-The friend you were supposed to meet has cancelled on you and now you are free to spend the afternoon unencumbered by companionship or social obligation. You pay for your coffee, get on your bike, and lazily roll down the small residential streets lined on either side with bungalows, paint all peeling, nestled cozy under a canopy of hackberry and live oak. 
-
-You know this area quite well, but today you notice something different about one of the older homes. This building is narrow and set back deep on the lot, mostly obscured by a giant live oak and all overgrown with pride of barbados and frostweed. The large front window is painted with gold lettering:
-
-W. F. Strayhorn's
-Rare & Imported Books",
+    content: "You's a cheater. NO PEAKING",
     path1_id: p.id,
     path2_id: o.id,
     lowest: false
