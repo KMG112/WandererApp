@@ -5,10 +5,15 @@
 <div class="listBody">
   
 <ul >
-  <% @chapters.reverse.each do |chapter| %>
-    <li>
-    	<div class="listContent">
-    		<%= chapter.content %>
+  <% @chapters.sort.reverse.each do |chapter| %>
+    <li >
+    	<div class="listContent" style="border:2px solid black;margin-bottom:2vw;">
+        <div>Name: <%= chapter.id %></div>
+
+        <div>Name: <%= chapter.name %></div>
+        <div>Email: <%= chapter.email %></div>
+        <div><%= chapter.content %></div>
+
     	</div>
       <div class="listButton">
       	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#listModal">

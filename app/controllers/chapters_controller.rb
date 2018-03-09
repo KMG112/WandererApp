@@ -4,8 +4,6 @@ class ChaptersController < ApplicationController
 	def index
 		
 		@chapter = Chapter.order("RANDOM()").where(lowest: true).first
-		
-
 	end
 
 	
@@ -16,17 +14,20 @@ class ChaptersController < ApplicationController
 		@chapter.plots.build
 
 
-		@last =Chapter.find(params[:chapter_id])
 
-		if  @last.paths.where(used: false).count == 0
-			
-			@last.update(lowest: false)
-		end
+		@last =Chapter.find(params[:chapter_id])
+	
 	end
 
 	def create
 		@usedPath = Path.find(params[:pathPrev])
 		@usedPath.update(used: true)
+		@lastChapter = @usedPath.chapters.first
+
+		if  @lastChapter.paths.where(used: false).count == 0
+			
+			@lastChapter.update(lowest: false)
+		end
 
 
 		@chapter = Chapter.new(chapter_params)
@@ -76,6 +77,8 @@ class ChaptersController < ApplicationController
 			@referrer = @referrer.remove("http://localhost:3000") 
 		end
 		@chapter = Chapter.find(params[:id])
+		@f = @chapter.paths.find( @chapter.path1_id)
+		@y = @chapter.paths.find( @chapter.path2_id)
   	end
 
   	def list
@@ -87,7 +90,6 @@ class ChaptersController < ApplicationController
   		@chapter = Chapter.find(params[:id])
   		@paths = Path.all
   		@paths.find(@chapter.pathPrev_id).update(used: false)
-
   		@chapter.destroy
 
   		redirect_to '/list'

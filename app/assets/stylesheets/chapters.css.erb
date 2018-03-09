@@ -156,11 +156,12 @@ textarea{border: 1px solid transparent;border-top: none;border-bottom: 1px solid
 
 #newChapterBody .prevPath{
 	text-align: center;
-	margin-bottom: 1.171875vw;
-	line-height: 1.7578125vw;
+	font-size: 1.5625vw;
+    line-height: 2.34375vw;
+    font-style: italic;
 	padding: .193125vw;
-	font-style: italic;
 	color:#fff;
+	margin-bottom: 2vw;
 }
 #newChapterBody .newChapterNameEmail{
 	margin-bottom: 1.171875vw;
@@ -211,11 +212,11 @@ textarea{border: 1px solid transparent;border-top: none;border-bottom: 1px solid
     padding-top: 1.171875vw;
     float:right;
 	}
-.newChapterContentPath1{border: .195125vw solid #d3d3d3;}
+#newChapterBodyWrapper .newChapterContentPath1{border: .195125vw solid #d3d3d3;}
 	
-.newChapterContentPath2{border: .195125vw solid #d3d3d3;}
+#newChapterBodyWrapper .newChapterContentPath2{border: .195125vw solid #d3d3d3;}
 
-#newChapterBody .goChapterButtonWrapper{
+#newChapterBodyWrapper .goChapterButtonWrapper{
 	width: 100%;
 	margin-top: 1.171875vw;
 }
@@ -240,6 +241,18 @@ textarea{border: 1px solid transparent;border-top: none;border-bottom: 1px solid
     font-size: 1.25vw;
     
     border:none;
+}
+/* Show Page Css*/
+#showBodyWrapper .showBody{
+	padding: 0 33% 12% 33%;
+	bottom: 0;
+    top: 0;
+    left:0;
+    right:0;
+    position: absolute;
+    overflow: scroll;
+    margin-top: 120px;
+    padding-bottom: 120px;
 }
 
 
@@ -312,17 +325,6 @@ textarea{border: 1px solid transparent;border-top: none;border-bottom: 1px solid
 }
 
 
-#showBodyWrapper .showBody{
-	padding: 0 33% 12% 33%;
-	bottom: 0;
-    top: 0;
-    left:0;
-    right:0;
-    position: absolute;
-    overflow: scroll;
-    margin-top: 120px;
-    padding-bottom: 120px;
-}
 .showPagePathContentWrapper{
 	width:100%;
 	display: table;
@@ -341,6 +343,9 @@ textarea{border: 1px solid transparent;border-top: none;border-bottom: 1px solid
 .showPagePathContentRedirect{
 	color: #fff;
 	margin-top:2vw;
+	font-size: 1.5625vw;
+    line-height: 2.34375vw;
+    font-style: italic;
 }
  
 #showBodyWrapper .homeButtonWrapper{
@@ -373,6 +378,7 @@ textarea{border: 1px solid transparent;border-top: none;border-bottom: 1px solid
 	color:#fff;
 	text-decoration: none;
 }
+/*List Styles*/
 .listBody{
 	height: 100%;
 	min-height:100%;
