@@ -6,7 +6,7 @@ body{height: 100%;}
 #showBodyWrapper::-webkit-scrollbar {display: none;}
 input{border: 1px solid transparent;border-top: none;border-bottom: 1px solid #DDD;box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;}
 textarea{border: 1px solid transparent;border-top: none;border-bottom: 1px solid #DDD;box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;}
-body:after{content:'';position:fixed; width:100%;height:120px;bottom:0;background: inherit;}
+.showBodyAfterBar:after{content:'';position:fixed; width:100%;height:120px;bottom:0;background: inherit;}
 .clearfix:before {visibility: hidden;display: block;font-size: 0;content: " ";clear: both;height: 0;}
 .clearfix:after {visibility: hidden;display: block;font-size: 0;content: " ";clear: both;height: 0;}
 .clearfix { display: inline-block; }
@@ -138,11 +138,18 @@ body:after{content:'';position:fixed; width:100%;height:120px;bottom:0;backgroun
 	font-size: 1.25vw;
 }
 #newChapterBody{
-	padding:10% 20%;
+	min-height: 100% !important;
+    padding: 0;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    overflow: scroll;
 }
 
 #newChapterBody .newChapterContentForm{
-	width:60%;
+	width:33%;
 	margin:auto;
 }
 
@@ -280,6 +287,8 @@ body:after{content:'';position:fixed; width:100%;height:120px;bottom:0;backgroun
 	padding:0;
 	bottom: 0;
     top: 0;
+    left:0;
+    right:0;
     position: absolute;
     overflow: scroll;
     margin-top: 120px;
@@ -374,7 +383,6 @@ body:after{content:'';position:fixed; width:100%;height:120px;bottom:0;backgroun
 .listContent{
 	width:70%;
 	display: inline-block;
-
 }
 
 .listButton{
