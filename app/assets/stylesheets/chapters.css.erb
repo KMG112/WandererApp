@@ -1,28 +1,14 @@
 
 
 *{padding:0;margin:0;box-sizing : border-box;}
-html{min-height:100%;height: 100%;font-family: "Caslon Pro", Courier, serif;background: #000;}
-body{min-height: 100%;height: 100%;}
-html::-webkit-scrollbar {display: none;}
+html{height: 100%;font-family: "Caslon Pro", Courier, serif;background: #000;overflow:hidden;}
+body{height: 100%;}
+#showBodyWrapper::-webkit-scrollbar {display: none;}
 input{border: 1px solid transparent;border-top: none;border-bottom: 1px solid #DDD;box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;}
 textarea{border: 1px solid transparent;border-top: none;border-bottom: 1px solid #DDD;box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;}
-
-.clearfix:before {
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  content: " ";
-  clear: both;
-  height: 0;
-}
-.clearfix:after {
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  content: " ";
-  clear: both;
-  height: 0;
-}
+body:after{content:'';position:fixed; width:100%;height:120px;bottom:0;background: inherit;}
+.clearfix:before {visibility: hidden;display: block;font-size: 0;content: " ";clear: both;height: 0;}
+.clearfix:after {visibility: hidden;display: block;font-size: 0;content: " ";clear: both;height: 0;}
 .clearfix { display: inline-block; }
 /* start commented backslash hack \*/
 * html .clearfix { height: 1%; }
@@ -82,6 +68,7 @@ textarea{border: 1px solid transparent;border-top: none;border-bottom: 1px solid
 	height: 100% !important;
 	background-image: url('Page 1_bkgrnd.jpg');
 	position: relative;
+	z-index: 1;
 }
 .startAlignButtonWrapper{
 	position: absolute;
@@ -163,9 +150,9 @@ textarea{border: 1px solid transparent;border-top: none;border-bottom: 1px solid
 	text-align: center;
 	margin-bottom: 1.171875vw;
 	line-height: 1.7578125vw;
-	background:#d3d3d3;
 	padding: .193125vw;
-	border: 1px solid transparent;border-top: none;border-bottom: 1px solid #DDD;box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+	font-style: italic;
+	color:#fff;
 }
 #newChapterBody .newChapterNameEmail{
 	margin-bottom: 1.171875vw;
@@ -234,7 +221,7 @@ textarea{border: 1px solid transparent;border-top: none;border-bottom: 1px solid
 	border-radius: 1.875vw;
 	background: #ff0000;
 	text-align: center;
-	box-shadow: .01953125vw .01953125vw .78125vw #000
+	box-shadow: .01953125vw .01953125vw .78125vw #000;
 	display: inline-block;
 	color:#fff ;
 	margin:auto;
@@ -291,6 +278,12 @@ textarea{border: 1px solid transparent;border-top: none;border-bottom: 1px solid
 #showBodyWrapper{
 	min-height: 100% !important;
 	padding:0;
+	bottom: 0;
+    top: 0;
+    position: absolute;
+    overflow: scroll;
+    margin-top: 120px;
+    padding-bottom: 120px;
 }
 #showBodyWrapper .showBody .showChapterContent{
 	font-size: 1.5625vw;
@@ -308,15 +301,16 @@ textarea{border: 1px solid transparent;border-top: none;border-bottom: 1px solid
 	font-size: 4.6875vw;
 	float: left;
     line-height: 1.946075vw;
-    padding-top: 1.82444531vw;
-    padding-right: 1.09466719vw;
+    padding-top: 1.95vw;
+    padding-right: .6vw;
 	color:#fff;
-
+    text-transform: uppercase;
+    margin-left: -.4vw;
 }
 
 
 #showBodyWrapper .showBody{
-	padding:120px 33%;
+	padding: 0 33% 12% 33%;
 }
 .showPagePathContentWrapper{
 	width:100%;
@@ -337,18 +331,37 @@ textarea{border: 1px solid transparent;border-top: none;border-bottom: 1px solid
 	color: #fff;
 	margin-top:2vw;
 }
-
-.homeButtonWrapper{
-	margin-top:2vw;
-
+ 
+#showBodyWrapper .homeButtonWrapper{
+	position:relative;
+	height:3.75vw;
+	width:3.75vw;
+	-moz-border-radius: 1.875vw;
+	-webkit-border-radius: 1.875vw;
+	border-radius: 1.875vw;
+	background: #ff0000;
+	text-align: center;
+	box-shadow: .01953125vw .01953125vw .78125vw #000;
+	display: inline-block;
+	margin-top: 3vw;
+	left:50%;
+	transform: translate(-50%, 0%);
 }
 
-.homeButtonWrapper .homeButton{
+#showBodyWrapper .homeButtonWrapper .homeButton{
+	position:absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color:#fff ;
+	text-decoration: none;
+	font-style: italic;
+}
+
+#showBodyWrapper .homeButtonWrapper .homeButton a{
 	color:#fff;
 	text-decoration: none;
 }
-
-
 .listBody{
 	height: 100%;
 	min-height:100%;

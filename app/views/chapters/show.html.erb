@@ -16,7 +16,12 @@
         <div class="showPagePathContentRedirect">
          <%= @y.content %>
         </div>
-     
+
+     <div class="homeButtonWrapper">
+        <div class="homeButton">
+          <%= link_to 'Home', chapter_path('index') %> 
+        </div>
+      </div>
 
     <% else %>
 
@@ -78,10 +83,7 @@
 
     <% end %>
 
-  <div class="homeButtonWrapper">
-    <%= link_to 'Home', chapter_path('index'), class: "homeButton" %> 
-
-  </div>
+  
 
   </div>
 </div>
