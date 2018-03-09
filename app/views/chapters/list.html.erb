@@ -1,27 +1,9 @@
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('.deleteButton').on('click',function(){
-       var thePrompt = $('html');
-      var theHTML = "";
+<link rel="stylesheet" type="text/css" href="bootstrap.css"></link>
 
-      theHTML += "<p>The server http://localhost:8888 requires a username and password. The server says: These are restricted files, please authenticate yourself.</p>";
-      theHTML += "<br/>";
-      theHTML += "Username: <input type='text' id='theUser' placeholder='Enter Username...'/>";
-      theHTML += "<br />";
-      theHTML += "Password: <input type='text' id='thePass' placeholder='Enter Password...'/>";
-      theHTML += "<br />";
-      theHTML += "<input type='button' value='OK' id='authOK'/>";
-      thePrompt.document.body.innerHTML = theHTML;
+<script  type="text/javascript" src="bootstrap.js"></script>
 
-      var theUser = thePrompt.document.getElementById("theUser").value;
-      var thePass = thePrompt.document.getElementById("thePass").value;
-      thePrompt.document.getElementById("authOK").onclick = function () {
-          doAuthentication(theUser, thePass);
-      }
-    });
-  });
-</script>
 <div class="listBody">
+  
 <ul >
   <% @chapters.reverse.each do |chapter| %>
     <li>
@@ -29,11 +11,37 @@
     		<%= chapter.content %>
     	</div>
       <div class="listButton">
-      	<%= button_to "Delete", chapter_path(chapter.id),method: :delete, class: "deleteButton", data: { confirm: 'Are you sure?' } %>
+      	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#listModal">
+          Delete
+        </button>
        
       </div>
     </li>
+
+    <div class="modal fade" id="listModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <span>Password    </span><input placeholder="Password" name="password" type="password" class="passwordCheck">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <%= button_to "Delete", chapter_path(chapter.id),method: :delete, class: "deleteButton btn btn-primary", data: { traget: "#listModal" } %>
+      </div>
+    </div>
+  </div>
+</div>
+
   <% end %>
 </ul>
 
 </div>
+
+

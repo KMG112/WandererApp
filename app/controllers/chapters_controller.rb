@@ -80,7 +80,7 @@ class ChaptersController < ApplicationController
 
   	def list
   		@chapters = Chapter.all
-
+  		
   	end
 
   	def destroy
