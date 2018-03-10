@@ -11,14 +11,13 @@ class ChaptersController < ApplicationController
 
 		@usedPath = Path.find(params[:id])
 		@chapter = Chapter.new(pathPrev_id: params[:id])
-		# @chapter.plots.build
 		@last =Chapter.find(params[:chapter_id])
-		
 		2.times {@chapter.plots.build.build_path}
 
 	end
 
 	def create
+		debugger
 		@usedPath = Path.find(params[:pathPrev])
 		@usedPath.update(used: true)
 		@lastChapter = @usedPath.chapters.first
@@ -100,3 +99,14 @@ private
   def chapter_params
     params.require(:chapter).permit(:id, :name, :lowest, :content, :email, :path1_id, :path2_id,:pathPrev_id, plot_attributes: [:plot_id, path_attributes: [:content, :used]])
   end
+
+
+
+
+  def add_path
+   self.product ||= Product.new if self.new_record?
+  end
+
+
+
+
