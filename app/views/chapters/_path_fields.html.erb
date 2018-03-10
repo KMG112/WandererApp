@@ -1,0 +1,11 @@
+<% debugger %>
+      <div style="background:white;width:100%;"><%= p.object.inspect %></div>
+  <%= p.fields_for (Path.create) do |pa| %>
+
+    <div class="newChapterContentPath1 clearfix">    
+      <%= text_area_tag 'chapter[plots][paths][path1content]', pa.object.content, placeholder: "Chapter choice 1",:required => true,maxlength: 200  %>
+      <%= hidden_field_tag 'chapter[plots][paths][path1id]', pa.object.id %>
+    </div> 
+  <% end %>
+
+

@@ -16,10 +16,11 @@
 
     	</div>
       <div class="listButton">
-      	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#listModal">
+      	<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#listModal">
           Delete
         </button>
-       
+        -->
+        <%= button_to "Delete", chapter_path(chapter.id),method: :delete, class: "deleteButton btn btn-primary", data: { traget: "#listModal" } %>
       </div>
     </li>
 
@@ -39,7 +40,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <%= button_to "Delete", chapter_path(chapter.id),method: :delete, class: "deleteButton btn btn-primary", data: { traget: "#listModal" } %>
+        
       </div>
     </div>
   </div>

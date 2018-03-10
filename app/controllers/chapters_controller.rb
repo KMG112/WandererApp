@@ -11,12 +11,11 @@ class ChaptersController < ApplicationController
 
 		@usedPath = Path.find(params[:id])
 		@chapter = Chapter.new(pathPrev_id: params[:id])
-		@chapter.plots.build
-
-
-
+		# @chapter.plots.build
 		@last =Chapter.find(params[:chapter_id])
-	
+		
+		2.times {@chapter.plots.build.build_path}
+
 	end
 
 	def create
