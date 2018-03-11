@@ -37,23 +37,16 @@
         <%= f.text_area :content, placeholder: "Begin the next chapter here...", :required => true  %>
       </div>
       
-    <%= f.fields_for :plots do |p| %>
-      <%= render partial:'path_fields', locals:{ p: p} %>
-    <% end %>
-<<<<<<< HEAD
-
-
-     <%= hidden_field_tag 'chapter[:pathPrev_id]', @usedPath.id %>
-
-      <div class="goChapterButtonWrapper">
-        <%= f.button "Go!", class: "goChapterButton" %>
-=======
+      <%= f.fields_for :plots do |p| %>
+        <%= render partial:'path_fields', locals:{ p: p} %>
+      <% end %>
 
 
       <div class="goChapterButtonWrapper">
         <%= f.button "Go!", name:"pathPrev_id", value: @chapter.pathPrev_id, class: "goChapterButton" %>
->>>>>>> reformatting
+
       </div>
+      
     <% end %>
   </div>
 </div>

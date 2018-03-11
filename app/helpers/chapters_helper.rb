@@ -5,8 +5,6 @@ module ChaptersHelper
 		asset_path(images[rand(images.size)])
 	end
 
-	
-
 	def findChapter
 		Chapter.find(params[:id])
 	end

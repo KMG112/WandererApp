@@ -13,16 +13,6 @@ lsof -wni tcp:3000
 kill -9 PID
 
 
-chapter array
-path array
-
-Look through each path and find associated chapters
-
-if there are chapters, get path1 and path2 id of chapter
-
-used path ids to find paths
-
-get those paths chapters
 
 
 
