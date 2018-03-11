@@ -9,11 +9,11 @@
     <% if @referrer.to_s =~ /\/chapters\/new/  %>
 
        <div class="showPagePathContentRedirect">
-         <%= @f.content %>
+         <%= @path1.content %>
         </div>
 
         <div class="showPagePathContentRedirect">
-         <%= @y.content %>
+         <%= @path2.content %>
         </div>
 
      <div class="homeButtonWrapper">
@@ -25,11 +25,11 @@
     <% else %>
 
 
-      <% if not @f.used %>
+      <% if not @path1.used %>
           <div class="showPagePathContentWrapper">
 
             <div class="showPagePathContent">
-              <%=@f.content %>
+              <%=@path1.content %>
             </div>
 
             <div class="newChapterButtonWrapper">
@@ -41,22 +41,22 @@
       <% else %>
             <div class="showPagePathContentWrapper">
               <div class="showPagePathContent">
-                <%= @f.content %>
+                <%= @path1.content %>
               </div>
               
               
               <div class="keepGoingButtonWrapper">
                  <div class="keepGoingButton">
-                    <%= link_to 'Next', chapter_path(:id => Chapter.find_by(pathPrev_id: @f.id), path_id:@chapter.path1_id, chapter_id: @chapter.id) %> 
+                    <%= link_to 'Next', chapter_path(:id => Chapter.find_by(pathPrev_id: @path1.id), path_id:@chapter.path1_id, chapter_id: @chapter.id) %> 
                  </div>
               </div>
             </div>
 
       <%end%>
-      <% if not @y.used %>
+      <% if not @path2.used %>
             <div class="showPagePathContentWrapper">
               <div class="showPagePathContent">
-                <%=@y.content %>
+                <%=@path2.content %>
               </div>
               <div class="newChapterButtonWrapper">
                 <div class="newChapterButton">
@@ -68,12 +68,12 @@
             <div class="showPagePathContentWrapper">
 
               <div class="showPagePathContent">
-                <%=@y.content %>
+                <%=@path2.content %>
               </div>
 
                <div class="keepGoingButtonWrapper">
                  <div class="keepGoingButton">
-                    <%= link_to 'Next', chapter_path(:id => Chapter.find_by(pathPrev_id: @y.id), path_id:@chapter.path2_id, chapter_id: @chapter.id) %> 
+                    <%= link_to 'Next', chapter_path(:id => Chapter.find_by(pathPrev_id: @path2.id), path_id:@chapter.path2_id, chapter_id: @chapter.id) %> 
                  </div>
               </div>
             </div>

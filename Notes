@@ -8,14 +8,6 @@ git reset --hard HEAD
 
 
 
-bashrc 
-	export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-
-bash profile 
-	 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-
 
 lsof -wni tcp:3000
 kill -9 PID
@@ -31,3 +23,8 @@ if there are chapters, get path1 and path2 id of chapter
 used path ids to find paths
 
 get those paths chapters
+
+
+
+
+
