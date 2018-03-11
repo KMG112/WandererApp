@@ -66,13 +66,18 @@ module ChaptersHelper
 	end
 
 	def rollbackUsedParamOnPath
-		@paths = Path.all
-		@prevPath = @paths.find(@chapter.pathPrev_id)
-		@prevPath.update(used: false)
+		
+		if @chapter
+			@prevPath = Path.find(@chapter.pathPrev_id) rescue nil
+			if @prevPath
+				@prevPath.update(used: false)
+			end
+		end
 	end
 
 	def rollbackVisibleChapter
-		if @prevPath.chapters.first
+		if @prevPath && @prevPath.chapters
+
 			@prevPath.chapters.first.update(lowest: true)
 		end
 	end
