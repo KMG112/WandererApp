@@ -1,9 +1,4 @@
-
-
 <div class="listBody">
-
-
-
 <ul >
   <% @chapters.sort.reverse.each do |chapter| %>
     <li >
@@ -12,6 +7,13 @@
 
         <div>Name: <%= chapter.name %></div>
         <div>Email: <%= chapter.email %></div>
+        <br />
+        <div>Path1: <%= chapter.paths.first.content %></div>
+        <br />
+        <div>Path2: <%= chapter.paths.last.content %></div>
+        <br />
+        <div>Email: <%= chapter.email %></div>
+
         <div><%= chapter.content %></div>
 
     	</div>
@@ -20,7 +22,6 @@
         <%= button_to "Delete", chapter_path(chapter.id),method: :delete, class: "deleteButton btn btn-primary", data: { confirm: "Make sure the user has navigated to the HOMEPAGE and hits REFRESH before you press ok!!!!"} %>
       </div>
     </li>
-
 
   <% end %>
 </ul>

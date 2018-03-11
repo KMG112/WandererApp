@@ -77,7 +77,6 @@ module ChaptersHelper
 
 	def rollbackVisibleChapter
 		if @prevPath && @prevPath.chapters
-
 			@prevPath.chapters.first.update(lowest: true)
 		end
 	end
