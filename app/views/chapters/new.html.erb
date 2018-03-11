@@ -5,7 +5,7 @@
 
   <div class="newChapterContentForm">
     <div class="prevPath">
-      <%= Path.find(@chapter.pathPrev_id).content  %>
+      <%= @usedPath.content  %>
     </div>
 
     <%= form_for(@chapter) do |f| %>

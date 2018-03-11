@@ -8,14 +8,6 @@ git reset --hard HEAD
 
 
 
-bashrc 
-	export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-
-bash profile 
-	 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-
 
 lsof -wni tcp:3000
 kill -9 PID
@@ -33,18 +25,6 @@ used path ids to find paths
 get those paths chapters
 
 
-!!!!!!!!!!!||||||||||||
-
-ALLLOW DESTROY: true --- modal
-
-
-CREATE _Partial
 
 
 
-  <%= p.fields_for (Path.create) do |pa| %>
-    <div class="newChapterContentPath2 clearfix">
-      <%= text_area_tag 'chapter[plots][paths][path2content]', pa.object.content, placeholder: "Chapter choice 2", :required => true,maxlength: 200  %>
-      <%= hidden_field_tag 'chapter[plots][paths][path2id]', pa.object.id %>
-    </div> 
-  <% end %>

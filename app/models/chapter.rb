@@ -4,7 +4,7 @@ class Chapter < ApplicationRecord
 	has_many :plots, dependent: :destroy
 	has_many :paths, through: :plots
 
- 	accepts_nested_attributes_for :plots, :paths
+ 	accepts_nested_attributes_for :plots, :paths, allow_destroy: true
     validates :content      , presence: true
     validates :name         , presence: true
 
@@ -13,7 +13,6 @@ class Chapter < ApplicationRecord
 
    def getrid_children
     chapterArray = []
-
     association_loop(self, chapterArray)
     chapterArray.map{|r| r.destroy}
    end
@@ -35,5 +34,13 @@ class Chapter < ApplicationRecord
      return chapterArray
     end
 
-end
 
+  def self.findRandomChapter()
+    order("RANDOM()").where(lowest: true).first
+  end
+
+  def self.findChapter
+    find(params[:id])
+  end
+
+end

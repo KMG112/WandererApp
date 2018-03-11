@@ -1,9 +1,9 @@
-<link rel="stylesheet" type="text/css" href="bootstrap.css"></link>
 
-<script  type="text/javascript" src="bootstrap.js"></script>
 
 <div class="listBody">
-  
+
+
+
 <ul >
   <% @chapters.sort.reverse.each do |chapter| %>
     <li >
@@ -16,35 +16,11 @@
 
     	</div>
       <div class="listButton">
-      	<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#listModal">
-          Delete
-        </button>
-        -->
-        <%= button_to "Delete", chapter_path(chapter.id),method: :delete, class: "deleteButton btn btn-primary", data: { traget: "#listModal" } %>
+
+        <%= button_to "Delete", chapter_path(chapter.id),method: :delete, class: "deleteButton btn btn-primary", data: { confirm: "Make sure the user has navigated to the HOMEPAGE and hits REFRESH before you press ok!!!!"} %>
       </div>
     </li>
 
-    <div class="modal fade" id="listModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
-
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <!-- <span>Password    </span><input placeholder="Password" name="password" type="password" class="passwordCheck"> -->
-        All connected chapters will be deleted.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        
-      </div>
-    </div>
-  </div>
-</div>
 
   <% end %>
 </ul>
