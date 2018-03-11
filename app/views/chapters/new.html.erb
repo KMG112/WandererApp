@@ -36,30 +36,16 @@
       <div class="newChapterContent clearfix">
         <%= f.text_area :content, placeholder: "Begin the next chapter here...", :required => true  %>
       </div>
-
-      <%= f.fields_for :plot do |p| %>
       
-        <%= p.fields_for (Path.create) do |pa| %>
-          <div class="newChapterContentPath1 clearfix">    
-            <%= text_area_tag 'chapter[plots][paths][path1content]', pa.object.content, placeholder: "Chapter choice 1",:required => true,maxlength: 200  %>
-            <%= hidden_field_tag 'chapter[plots][paths][path1id]', pa.object.id %>
-           
-          </div> 
-        <% end %>
-          <%= p.fields_for (Path.create) do |pa| %>
-          <div class="newChapterContentPath2 clearfix">
-            <%= text_area_tag 'chapter[plots][paths][path2content]', pa.object.content, placeholder: "Chapter choice 2", :required => true,maxlength: 200  %>
-            <%= hidden_field_tag 'chapter[plots][paths][path2id]', pa.object.id %>
-          </div> 
-        
-        <% end %>
+    <%= f.fields_for :plots do |p| %>
+      <%= render partial:'path_fields', locals:{ p: p} %>
+    <% end %>
 
-      <% end %>
 
-     <%= hidden_field_tag 'chapter[:pathPrev]', @usedPath.id %>
+     <%= hidden_field_tag 'chapter[:pathPrev_id]', @usedPath.id %>
 
       <div class="goChapterButtonWrapper">
-        <%= f.button "Go!", name:"pathPrev", value: @chapter.pathPrev_id, class: "goChapterButton" %>
+        <%= f.button "Go!", class: "goChapterButton" %>
       </div>
     <% end %>
   </div>

@@ -9,8 +9,8 @@ class ChaptersController < ApplicationController
 	
 	def new
 
-		@usedPath = Path.find(params[:id])
-		@chapter = Chapter.new(pathPrev_id: params[:id])
+		@usedPath = Path.find(params[:path_id])
+		@chapter = Chapter.new(pathPrev_id: params[:path_id])
 		@chapter.plots.build
 
 
@@ -20,7 +20,7 @@ class ChaptersController < ApplicationController
 	end
 
 	def create
-		@usedPath = Path.find(params[:pathPrev])
+		@usedPath = Path.find(params[:pathPrev_id])
 		@usedPath.update(used: true)
 		@lastChapter = @usedPath.chapters.first
 
@@ -38,7 +38,7 @@ class ChaptersController < ApplicationController
 		
 
   		if @chapter.save & @path1.save & @path2.save
- 			@chapter.pathPrev_id = Path.find(params[:pathPrev]).id
+ 			@chapter.pathPrev_id = Path.find(params[:pathPrev_id]).id
 			@chapter.update(content: params[:chapter][:content], email: params[:chapter][:email],name: params[:chapter][:name])
 			@chapter.update(path1_id: @path1.id)
 			@chapter.update(path2_id: @path2.id)

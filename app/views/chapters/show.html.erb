@@ -18,7 +18,7 @@
 
      <div class="homeButtonWrapper">
         <div class="homeButton">
-          <%= link_to 'Go!', chapter_path('index') %> 
+          <%= link_to 'Ok!', chapter_path('index') %> 
         </div>
       </div>
 
@@ -34,7 +34,7 @@
 
             <div class="newChapterButtonWrapper">
               <div class="newChapterButton">
-                <%= link_to 'Go!', new_chapter_path(:id => @chapter.path1_id, chapter_id: @chapter.id) %>
+                <%= link_to 'Go!', new_chapter_path(:path_id => @chapter.path1_id, chapter_id: @chapter.id) %>
               </div>
             </div>
           </div>
@@ -60,7 +60,7 @@
               </div>
               <div class="newChapterButtonWrapper">
                 <div class="newChapterButton">
-                  <%= link_to 'Go!', new_chapter_path(:id => @chapter.path2_id, chapter_id: @chapter.id) %>
+                  <%= link_to 'Go!', new_chapter_path(:path_id => @chapter.path2_id, chapter_id: @chapter.id) %>
                 </div>
               </div>
             </div>
