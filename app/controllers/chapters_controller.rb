@@ -9,43 +9,36 @@ class ChaptersController < ApplicationController
 	
 	def new
 
-		@usedPath = Path.find(params[:id])
-		@chapter = Chapter.new(pathPrev_id: params[:id])
+		@usedPath = Path.find(params[:path_id])
+		@chapter = Chapter.new(pathPrev_id: params[:path_id])
 		@last =Chapter.find(params[:chapter_id])
 		2.times {@chapter.plots.build.build_path}
 
 	end
 
 	def create
-		debugger
+
 		@usedPath = Path.find(params[:pathPrev])
 		@usedPath.update(used: true)
 		@lastChapter = @usedPath.chapters.first
 
 		if  @lastChapter.paths.where(used: false).count == 0
-			
 			@lastChapter.update(lowest: false)
 		end
 
-
 		@chapter = Chapter.new(chapter_params)
-		
-		@path1 = Path.find(params[:chapter][:plots][:paths][:path1id])
-		@path2 = Path.find(params[:chapter][:plots][:paths][:path2id])
+
+
+		@path1 = Path.new(content: params["chapter"]["plots"]["paths"]["path1content"],)
+		@path2 = Path.new(content: params["chapter"]["plots"]["paths"]["path2content"])
 		
 		
 
   		if @chapter.save & @path1.save & @path2.save
  			@chapter.pathPrev_id = Path.find(params[:pathPrev]).id
-			@chapter.update(content: params[:chapter][:content], email: params[:chapter][:email],name: params[:chapter][:name])
-			@chapter.update(path1_id: @path1.id)
-			@chapter.update(path2_id: @path2.id)
-			@chapter.paths << @path1
-			@chapter.paths << @path2
-
-			@path1.update(content: params["chapter"]["plots"]["paths"]["path1content"])
-			@path2.update(content: params["chapter"]["plots"]["paths"]["path2content"])
-			
+			@chapter.update( path1_id: @path1.id, path2_id: @path2.id)
+			@chapter.paths << [@path1, @path2]
+				
   			respond_to do |format|
 			    format.html { redirect_to @chapter, chapter: 'Chapter was successfully created.' }
 			    format.json { render action: 'show', status: :created, location: @chapter }

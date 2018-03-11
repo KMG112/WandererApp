@@ -4,7 +4,7 @@
 
     <div class="newChapterContentPath<%= i %> clearfix">    
       <%= text_area_tag 'chapter[plots][paths][path'+i +'content]', pa.object.content, placeholder: "Chapter choice " +i ,:required => true,maxlength: 200  %>
-      <%= hidden_field_tag 'chapter[plots][paths][path'+i +'id]', pa.object.id %>
+ 
     </div> 
   <% end %>
 
