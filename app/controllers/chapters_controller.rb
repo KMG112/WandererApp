@@ -18,7 +18,7 @@ class ChaptersController < ApplicationController
 
 	def create
 
-		@usedPath = Path.find(params[:pathPrev])
+		@usedPath = Path.find(params[:pathPrev_id])
 		@usedPath.update(used: true)
 		@lastChapter = @usedPath.chapters.first
 
@@ -35,7 +35,7 @@ class ChaptersController < ApplicationController
 		
 
   		if @chapter.save & @path1.save & @path2.save
- 			@chapter.pathPrev_id = Path.find(params[:pathPrev]).id
+ 			@chapter.pathPrev_id = Path.find(params[:pathPrev_id]).id
 			@chapter.update( path1_id: @path1.id, path2_id: @path2.id)
 			@chapter.paths << [@path1, @path2]
 				
@@ -63,6 +63,7 @@ class ChaptersController < ApplicationController
 	end
 
 	def show
+		
 		@referrer = request.referrer
 		if @referrer
 			@referrer = @referrer.remove("http://localhost:3000") 

@@ -42,10 +42,8 @@
     <% end %>
 
 
-     <%= hidden_field_tag 'chapter[:pathPrev]', @usedPath.id %>
-
       <div class="goChapterButtonWrapper">
-        <%= f.button "Go!", class: "goChapterButton" %>
+        <%= f.button "Go!", name:"pathPrev_id", value: @chapter.pathPrev_id, class: "goChapterButton" %>
       </div>
     <% end %>
   </div>
