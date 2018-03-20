@@ -2,7 +2,16 @@
 <ul >
   <% @chapters.sort.reverse.each do |chapter| %>
     <li >
-    	<div class="listContent" style="border:2px solid black;margin-bottom:2vw;">
+      <div class="listContent" style="border:2px solid black;margin-bottom:2vw;">
+
+        <br />
+
+        <div>Previous Chapter Record: <%= Chapter.where(path1_id: chapter.pathPrev_id).or(Chapter.where(path2_id: chapter.pathPrev_id)).inspect %></div>
+        <br />
+        <br />
+
+        <div>Current Chapter ID: <%= chapter.id %></div>
+        
         <div>ID: <%= chapter.id %></div>
 
         <div>Name: <%= chapter.name %></div>
@@ -16,7 +25,7 @@
 
         <div><%= chapter.content %></div>
 
-    	</div>
+      </div>
       <div class="listButton">
 
         <%= button_to "Delete", chapter_path(chapter.id),method: :delete, class: "deleteButton btn btn-primary", data: { confirm: "Make sure the user has navigated to the HOMEPAGE and hits REFRESH before you press ok!!!!"} %>
